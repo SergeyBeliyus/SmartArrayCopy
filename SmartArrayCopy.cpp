@@ -20,7 +20,7 @@ public:
 	void add_element(int elem) {
 		if (cursor > elements) {
 			int* temp = new int[(elements * 2) + 1];
-			for (auto i = 0; i <= elements; i++) {
+			for (size_t i = 0; i <= elements; i++) {
 				temp[i] = arr[i];
 				std::cout << temp[i] << std::endl;
 			}
@@ -46,12 +46,12 @@ public:
 	}
 
 	void operator=(smart_array& arr1) {
-
-		for (auto i = 0; i <= arr1.elements; i++) {
+		delete[] arr;
+		arr = new int[arr1.elements + 1];
+		cursor = arr1.cursor;
+		for (size_t i = 0; i <= arr1.elements; i++) {
 			arr[i] = arr1.get_element(i);
 		}
-		cursor = arr1.cursor;
-		elements = arr1.elements;
 	}
 };
 
