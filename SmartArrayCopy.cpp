@@ -49,6 +49,7 @@ public:
 		delete[] arr;
 		arr = new int[arr1.elements + 1];
 		cursor = arr1.cursor;
+		elements = arr1.elements;
 		for (size_t i = 0; i <= arr1.elements; i++) {
 			arr[i] = arr1.get_element(i);
 		}
